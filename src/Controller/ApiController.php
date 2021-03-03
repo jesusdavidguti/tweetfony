@@ -229,4 +229,24 @@ class ApiController extends AbstractController
         return new JsonResponse($result);
       }
 
+      function deleteTweetfonyTweet(Request $request, $id) {
+        $entityManager = $this->getDoctrine()->getManager();
+        $tweet = $entityManager->getRepository(Tweet::class)->find($id);
+        if ($tweet == null) {
+          return new JsonResponse([
+            'error' => 'Tweet not found for delete'
+          ], 404);
+        }
+
+        // Creamos un objeto genérico y lo rellenamos con la información.
+        $result = new \stdClass();
+        $result->id = $tweet->getId();
+        $result->text = $tweet->getText();
+        $result->date = $tweet->getDate();
+
+        $entityManager->remove($tweet);
+        $entityManager->flush();
+
+        return new JsonResponse($result);
+      }
 }

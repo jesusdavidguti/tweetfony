@@ -62,3 +62,8 @@ api_delete_user:
   controller: App\Controller\ApiController::deleteTweetfonyUser
   methods: ["DELETE"]
 
+api_delete_tweet:
+  path: /api/tweets/{id}
+  controller: App\Controller\ApiController::deleteTweetfonyTweet
+  methods: ["DELETE"]
+

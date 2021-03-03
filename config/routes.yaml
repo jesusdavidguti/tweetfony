@@ -43,3 +43,22 @@ api_post_tweet:
   controller: App\Controller\ApiController::postTweet
   methods: ["POST"]
 
+# PUT
+
+api_put_user:
+  path: /api/users/{id}
+  controller: App\Controller\ApiController::putTweetfonyUser
+  methods: ["PUT"]
+
+api_put_tweet:
+  path: /api/tweets/{id}
+  controller: App\Controller\ApiController::putTweetfonyTweet
+  methods: ["PUT"]
+
+# DELETE
+
+api_delete_user:
+  path: /api/users/{id}
+  controller: App\Controller\ApiController::deleteTweetfonyUser
+  methods: ["DELETE"]
+
